@@ -99,6 +99,10 @@ service-worker: true
 # Friends
 friends: [
     {
+        title: "互联力量",
+        href: "https://www.f598.com/"
+    },
+    {
         title: "Apple",
         href: "https://apple.com"
     },{
