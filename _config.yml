@@ -20,7 +20,7 @@ sidebar-avatar: /img/avatar.jpeg      # use absolute URL, seeing it's used in bo
 RSS: false
 # weibo_username:     luoyuan
 #zhihu_username:     luoyuan
-github_username:    memoriesofsnows
+github_username:    luoyuant
 #facebook_username:  baiying.qiu.7
 jianshu_username:   f4284f2cc646
 #twitter_username:   qiubaiying
@@ -64,9 +64,9 @@ gitalk:
   enable: true    #是否开启Gitalk评论
   clientID: cc577cec388a862a3ea4                            #生成的clientID
   clientSecret: 2603553e16e16bd336a08705191b2ec8a46d08e7    #生成的clientSecret
-  repo: memoriesofsnows.github.io    #仓库名称
-  owner: memoriesofsnows    #github用户名
-  admin: memoriesofsnows
+  repo: luoyuant.github.io    #仓库名称
+  owner: luoyuant    #github用户名
+  admin: luoyuant
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
