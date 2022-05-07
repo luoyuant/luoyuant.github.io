@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>毛豆视频申诉验证码</title>
+</head>
+<body>
+	<input id="inputText" type="text" name="" placeholder="请输入申诉码">
+	<button onclick="onclickButton()">获取验证码</button>
+	<div id="output_text"></div>
+</body>
+
+<script type="text/javascript">
+
+	//按钮点击
+	function onclickButton() {
+		var text = document.getElementById('inputText').value;
+		var number = parseInt(text);
+		if (number < 100000 || number > 1000000) {
+			document.getElementById('output_text').innerHTML = "请输入6位的申诉码";
+			return;
+		}
+		getVIPAppealVerifyNumber(number);
+	}
+
+	//获取验证码
+	function getVIPAppealVerifyNumber(number) {
+		var a = parseInt(number / 100000);
+	    var b = parseInt((number % 100000) / 10000);
+	    var c = parseInt((number % 10000) / 1000);
+	    var d = parseInt((number % 1000) / 100);
+	    var e = parseInt((number % 100) / 10);
+	    var f = parseInt((number % 10));
+
+	    var list = [a, b, c, d, e, f];
+
+	    //加权
+	    list = list.map(function(item) {
+	    	return weightedNumber(item);
+	    });
+
+
+	    console.log(list);
+	    //取反
+	    list = list.map(function(item) {
+	    	return bitwiseNegationNumber(item);
+	    });
+
+	    var resultNumber = 0;
+	    for (var i = 0; i < list.length; i++) {
+	    	var n = list[i];
+	    	resultNumber += n * Math.pow(10, list.length - i - 1);
+	    }
+
+	    console.log(list);
+	    document.getElementById('output_text').innerHTML = "验证码(code)：" + resultNumber;
+
+	}
+
+	//加权
+	function weightedNumber(number) {
+		var resultNumber = number * 7;
+	    resultNumber = resultNumber % 10;
+	    return resultNumber;
+	}
+
+	//取反
+	function bitwiseNegationNumber(number) {
+		var result = 10 - number;
+	    if (result >= 10 || result < 0) {
+	        result = 0;
+	    }
+	    return result;
+	}
+</script>
+
+</html>
